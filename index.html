@@ -58,23 +58,44 @@
 .card:hover h3 {
   color: #6b8f71;
 }
+    /* HEADER */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* LOGO LEFT */
+.logo img {
+  height: 60px;
+}
+
+/* NAV */
+nav a {
+  margin-left: 15px;
+  padding: 8px 16px;
+  text-decoration: none;
+  background
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" alt="Company Logo">
-  <h1>How Can We Help Cleaning & Property Services</h1>
-  <p>"How can we help!"</p>
+ <header class="topbar">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#contact">Contact</a>
-</nav>
 
 <section class="hero">
   <h1>Reliable, Family-Owned Cleaning Services</h1>

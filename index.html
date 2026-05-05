@@ -110,7 +110,32 @@
 .logo-box img {
   height: 120px;
 }
+@media (max-width: 768px) {
 
+  .hero-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-box img {
+    height: 80px;
+  }
+
+  .hero-menu {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-menu a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+}
+    .hero-menu {
+  gap: 8px;
+}
   </style>
 </head>
 <body>

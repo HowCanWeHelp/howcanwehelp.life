@@ -16,6 +16,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
+
     /* =========================
        GLOBAL
     ========================= */
@@ -207,44 +208,63 @@
     ========================= */
 
     .about-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-      gap: 60px;
-      align-items: center;
-
       max-width: 1200px;
-      padding-top: 80px;
+      padding-top: 75px;
       padding-bottom: 80px;
     }
 
+
+    /* ABOUT PHOTO */
+
     .about-visual {
       position: relative;
-      min-height: 500px;
+
+      width: min(760px, 100%);
+      margin: 0 auto 65px;
     }
 
     .about-accent {
       position: absolute;
-      top: 35px;
-      left: -30px;
 
-      width: 92%;
-      height: 92%;
+      top: 24px;
+      left: 24px;
+
+      width: 100%;
+      height: 100%;
 
       background: var(--sage-light);
-      border-radius: 20px;
+
+      border-radius: 22px;
     }
 
     .about-photo {
       position: relative;
       z-index: 2;
 
+      display: block;
+
       width: 100%;
       height: 500px;
 
       object-fit: cover;
 
-      border-radius: 18px;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+      border-radius: 20px;
+
+      box-shadow:
+        0 16px 38px rgba(0, 0, 0, 0.14);
+    }
+
+
+    /* ABOUT TEXT */
+
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-heading {
+      text-align: center;
+      margin-bottom: 35px;
     }
 
     .about-kicker {
@@ -259,76 +279,135 @@
       text-transform: uppercase;
     }
 
-    .about-content h2 {
-      margin: 0 0 20px;
+    .about-heading h2 {
+      margin: 0;
 
-      font-size: 38px;
-      line-height: 1.15;
+      font-size: 40px;
+      line-height: 1.2;
 
       color: var(--text);
     }
 
     .about-story {
-      margin-bottom: 30px;
-
-      font-size: 17px;
-      line-height: 1.8;
+      max-width: 820px;
+      margin: 0 auto;
 
       color: #555;
+
+      font-size: 16px;
+      line-height: 1.9;
     }
+
+    .about-story p {
+      margin: 0 0 22px;
+    }
+
+    .about-story .story-intro {
+      font-size: 19px;
+      font-weight: 600;
+
+      color: var(--text);
+    }
+
+    .about-story .story-closing {
+      margin-top: 32px;
+
+      text-align: center;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      color: var(--sage-dark);
+    }
+
+    .about-story .story-question {
+      display: block;
+
+      margin: 8px 0;
+
+      font-size: 26px;
+      font-weight: 700;
+
+      color: var(--sage);
+    }
+
+
+    /* ABOUT TRUST CARDS */
 
     .about-highlights {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
       gap: 18px;
+
+      margin-top: 55px;
     }
 
     .about-highlight {
-      display: flex;
-      gap: 14px;
-
-      padding: 18px;
+      padding: 24px 18px;
 
       background: var(--white);
 
-      border: 1px solid #e8eee9;
-      border-radius: 12px;
+      border: 1px solid #e4ebe5;
+      border-radius: 14px;
 
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.05);
 
       transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
     }
 
     .about-highlight:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-5px);
+
+      border-color: #ccdace;
+
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.09);
     }
+
+
+    /* TRUST CARD ICONS */
 
     .highlight-icon {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      width: 38px;
-      height: 38px;
+      width: 54px;
+      height: 54px;
 
-      flex: 0 0 38px;
+      margin: 0 auto 16px;
 
       background: var(--sage);
       color: var(--white);
 
       border-radius: 50%;
+    }
 
-      font-size: 12px;
-      font-weight: 700;
+    .highlight-icon svg {
+      width: 25px;
+      height: 25px;
+
+      fill: none;
+      stroke: currentColor;
+
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .about-highlight h3 {
-      margin: 0 0 5px;
+      margin: 0 0 8px;
 
       font-size: 15px;
+      line-height: 1.4;
 
       color: var(--text);
     }
@@ -337,7 +416,7 @@
       margin: 0;
 
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
 
       color: #666;
     }
@@ -349,7 +428,10 @@
 
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
       gap: 20px;
     }
 
@@ -359,7 +441,8 @@
       padding: 20px;
       border-radius: 10px;
 
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
+      box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.10);
 
       transition:
         transform 0.2s ease,
@@ -425,7 +508,9 @@
       margin-top: 10px;
 
       color: var(--sage);
+
       font-size: 18px;
+
       letter-spacing: 1px;
     }
 
@@ -486,6 +571,7 @@
       margin-top: 10px;
 
       color: var(--sage-dark);
+
       font-weight: 600;
     }
 
@@ -509,8 +595,10 @@
 
     .sticky-cta {
       position: fixed;
+
       right: 15px;
       bottom: 15px;
+
       z-index: 900;
 
       padding: 15px 20px;
@@ -520,7 +608,8 @@
 
       border-radius: 50px;
 
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+      box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.20);
 
       text-decoration: none;
       font-weight: 600;
@@ -546,13 +635,31 @@
 
 
     /* =========================
-       TABLET / MOBILE
+       TABLET
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .about-highlights {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
     ========================= */
 
     @media (max-width: 768px) {
+
       :root {
         --header-space: 220px;
       }
+
+
+      /* HEADER */
 
       .header-inner {
         flex-direction: column;
@@ -603,40 +710,55 @@
         font-size: 12px;
       }
 
+
+      /* SECTIONS */
+
       .section {
         padding: 42px 20px;
       }
 
-      /* ABOUT MOBILE */
+
+      /* ABOUT */
 
       .about-section {
-        grid-template-columns: 1fr;
-        gap: 35px;
-
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 60px;
       }
 
       .about-visual {
-        min-height: auto;
+        width: min(600px, 94%);
+
+        margin-bottom: 55px;
       }
 
       .about-accent {
-        top: 20px;
-        left: -12px;
+        top: 15px;
+        left: 15px;
       }
 
       .about-photo {
         height: 380px;
       }
 
-      .about-content h2 {
-        font-size: 30px;
+      .about-heading h2 {
+        font-size: 31px;
+      }
+
+      .about-story {
+        font-size: 15px;
+        line-height: 1.85;
       }
 
       .about-highlights {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 14px;
+
+        margin-top: 45px;
       }
+
+
+      /* STICKY QUOTE */
 
       .sticky-cta {
         right: 12px;
@@ -644,6 +766,7 @@
 
         padding: 13px 18px;
       }
+
     }
 
 
@@ -651,7 +774,17 @@
        SMALL PHONES
     ========================= */
 
+    @media (max-width: 520px) {
+
+      .about-highlights {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
     @media (max-width: 420px) {
+
       :root {
         --header-space: 205px;
       }
@@ -681,61 +814,130 @@
       }
 
       .header-button {
-        padding: 8px 8px;
+        padding: 8px;
 
         font-size: 11px;
+      }
+
+
+      /* ABOUT */
+
+      .about-visual {
+        width: 94%;
       }
 
       .about-photo {
         height: 300px;
       }
 
-      .about-content h2 {
+      .about-heading h2 {
         font-size: 27px;
       }
+
+      .about-story {
+        font-size: 14px;
+      }
+
+      .about-story .story-intro {
+        font-size: 17px;
+      }
+
+      .about-story .story-question {
+        font-size: 23px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        STICKY HEADER
   ========================== -->
+
   <header class="site-header">
+
     <div class="header-inner">
 
       <div class="brand">
+
         <div class="logo-box">
-          <img src="logo.png" alt="How Can We Help Cleaning & Property Services logo">
+          <img
+            src="logo.png"
+            alt="How Can We Help Cleaning & Property Services logo"
+          >
         </div>
 
         <div class="brand-text">
           <h1>How Can We Help</h1>
           <p>Cleaning & Property Services</p>
         </div>
+
       </div>
 
-      <nav class="header-actions" aria-label="Primary actions">
-        <a class="header-button" href="#contact">Request a Quote</a>
-        <a class="header-button" href="tel:7053339471">Call Now</a>
-        <a class="header-button" href="sms:7053339471">Text Us</a>
+
+      <nav
+        class="header-actions"
+        aria-label="Primary actions"
+      >
+
+        <a
+          class="header-button"
+          href="#contact"
+        >
+          Request a Quote
+        </a>
+
+        <a
+          class="header-button"
+          href="tel:7053339471"
+        >
+          Call Now
+        </a>
+
+        <a
+          class="header-button"
+          href="sms:7053339471"
+        >
+          Text Us
+        </a>
+
       </nav>
 
     </div>
+
   </header>
 
-  <div class="header-spacer" aria-hidden="true"></div>
+
+  <!-- Prevents content sitting underneath fixed header -->
+  <div
+    class="header-spacer"
+    aria-hidden="true"
+  ></div>
+
 
 
   <main>
 
+
     <!-- =========================
          ABOUT US
     ========================== -->
-    <section id="about" class="section about-section">
+
+    <section
+      id="about"
+      class="section about-section"
+    >
+
+
+      <!-- ABOUT PHOTO -->
 
       <div class="about-visual">
+
         <div class="about-accent"></div>
 
         <img
@@ -743,95 +945,256 @@
           alt="How Can We Help Cleaning & Property Services team"
           class="about-photo"
         >
+
       </div>
+
+
+
+      <!-- ABOUT CONTENT -->
 
       <div class="about-content">
 
-        <p class="about-kicker">A little about us</p>
 
-        <h2>Family Owned. Local. Here to Help.</h2>
+        <div class="about-heading">
 
-        <p class="about-story">
-          Meet Jess & Steve
+          <p class="about-kicker">
+            A little about us
+          </p>
 
-Two people who believe that helping people matters.
+          <h2>
+            Family Owned. Local. Here to Help.
+          </h2>
 
-Hi, we’re Jess and Steve!
+        </div>
 
-How Can We Help started with a pretty simple idea: if we have the ability to make someone’s life a little easier, why wouldn’t we?
 
-Jess has always been someone who finds herself helping wherever she can. She’s a natural organizer, a cleaner, a crafter, a problem-solver, and, according to Steve, someone who has a hard time saying no when somebody needs a hand. She loves taking something that feels overwhelming and turning it into something manageable again.
 
-Over the years, Steve became a big part of that same vision. He’s always been someone who is happiest when he can step in, figure something out, and make a difficult job a little easier. Whether it’s getting his hands dirty, solving a problem, lending a hand, or simply being there when someone needs support, helping people has always come naturally to him.
+        <!-- STORY -->
 
-Eventually, we realized that this was something we wanted to build together.
+        <div class="about-story">
 
-We started small, helping people with cleaning and whatever other jobs they needed a hand with. About five years later, that little idea has grown into something we’re incredibly proud of.
+          <p class="story-intro">
+            Meet Jess &amp; Steve — two people who believe that helping people matters.
+          </p>
 
-Along the way, we realized that the part we loved most wasn’t just making a house clean — it was seeing the relief on someone’s face when a job that had been weighing on them was finally taken care of.
+          <p>
+            Hi, we’re Jess and Steve!
+          </p>
 
-We’re in the business of helping people.
+          <p>
+            How Can We Help started with a pretty simple idea:
+            if we have the ability to make someone’s life a little easier,
+            why wouldn’t we?
+          </p>
 
-Sometimes that means cleaning a home for a busy parent who hasn’t had a moment to breathe.
+          <p>
+            Jess has always been someone who finds herself helping wherever
+            she can. She’s a natural organizer, a cleaner, a crafter,
+            a problem-solver, and, according to Steve, someone who has a hard
+            time saying no when somebody needs a hand. She loves taking
+            something that feels overwhelming and turning it into something
+            manageable again.
+          </p>
 
-Sometimes it means helping a senior with things that have become difficult to manage alone.
+          <p>
+            Over the years, Steve became a big part of that same vision.
+            He’s always been someone who is happiest when he can step in,
+            figure something out, and make a difficult job a little easier.
+            Whether it’s getting his hands dirty, solving a problem, lending
+            a hand, or simply being there when someone needs support, helping
+            people has always come naturally to him.
+          </p>
 
-Sometimes it means organizing the room that’s been driving someone crazy for six months, helping with a move, taking care of the yard, or simply tackling the pile of things that life has gotten in the way of.
+          <p>
+            Eventually, we realized that this was something we wanted to
+            build together.
+          </p>
 
-And sometimes, it’s just about giving someone back a little bit of their time.
+          <p>
+            We started small, helping people with cleaning and whatever other
+            jobs they needed a hand with. About five years later, that little
+            idea has grown into something we’re incredibly proud of.
+          </p>
 
-We don’t believe anyone should feel embarrassed about needing help. Life gets busy. Things happen. Homes get messy. To-do lists get long. Mess means life is happening. It means people are living, growing, working, raising families, creating memories, and sometimes just trying to get through the week.
+          <p>
+            Along the way, we realized that the part we loved most wasn’t
+            just making a house clean — it was seeing the relief on someone’s
+            face when a job that had been weighing on them was finally taken
+            care of.
+          </p>
 
-Everyone needs an extra set of hands sometimes.
+          <p>
+            We’re in the business of helping people.
+          </p>
 
-We’re building How Can We Help because we want to be those hands.
+          <p>
+            Sometimes that means cleaning a home for a busy parent who
+            hasn’t had a moment to breathe.
+          </p>
 
-Five years after that little idea began, we’re still a small, local business, and that’s something we’re proud of. When you hire us, you know who you’re getting. We care about the people we work for, we care about the quality of what we do, and we genuinely want you to feel better when we leave than you did when we arrived.
+          <p>
+            Sometimes it means helping a senior with things that have become
+            difficult to manage alone.
+          </p>
 
-At the end of the day, our name really says it all.
+          <p>
+            Sometimes it means organizing the room that’s been driving
+            someone crazy for six months, helping with a move, taking care of
+            the yard, or simply tackling the pile of things that life has
+            gotten in the way of.
+          </p>
 
-How Can We Help?
+          <p>
+            And sometimes, it’s just about giving someone back a little bit
+            of their time.
+          </p>
 
-It’s our pleasure to serve you.
-        </p>
+          <p>
+            We don’t believe anyone should feel embarrassed about needing
+            help. Life gets busy. Things happen. Homes get messy. To-do lists
+            get long. Mess means life is happening. It means people are
+            living, growing, working, raising families, creating memories,
+            and sometimes just trying to get through the week.
+          </p>
+
+          <p>
+            Everyone needs an extra set of hands sometimes.
+          </p>
+
+          <p>
+            We’re building How Can We Help because we want to be those hands.
+          </p>
+
+          <p>
+            Five years after that little idea began, we’re still a small,
+            local business, and that’s something we’re proud of. When you
+            hire us, you know who you’re getting. We care about the people
+            we work for, we care about the quality of what we do, and we
+            genuinely want you to feel better when we leave than you did
+            when we arrived.
+          </p>
+
+          <p class="story-closing">
+
+            At the end of the day, our name really says it all.
+
+            <span class="story-question">
+              How Can We Help?
+            </span>
+
+            It’s our pleasure to serve you.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- TRUST CARDS -->
 
         <div class="about-highlights">
 
-          <div class="about-highlight">
-            <div class="highlight-icon">01</div>
 
-            <div>
-              <h3>Family Owned &amp; Operated</h3>
-              <p>Personal service from people who genuinely care about the work.</p>
-            </div>
-          </div>
+          <!-- FAMILY OWNED -->
 
           <div class="about-highlight">
-            <div class="highlight-icon">02</div>
 
-            <div>
-              <h3>4+ Years Serving Our Community</h3>
-              <p>Proudly helping homes and businesses throughout Toronto &amp; York Region.</p>
+            <div class="highlight-icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 11.5 12 4l9 7.5"></path>
+                <path d="M5 10.5V20h14v-9.5"></path>
+                <path d="M9 20v-6h6v6"></path>
+              </svg>
+
             </div>
+
+            <h3>
+              Family Owned &amp; Operated
+            </h3>
+
+            <p>
+              Personal service from people who genuinely care about the work.
+            </p>
+
           </div>
+
+
+
+          <!-- COMMUNITY -->
 
           <div class="about-highlight">
-            <div class="highlight-icon">03</div>
 
-            <div>
-              <h3>Attention to Detail</h3>
-              <p>We believe the little things make a big difference.</p>
+            <div class="highlight-icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"></path>
+                <path d="m19 14 .8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z"></path>
+                <path d="m5 13 .8 2.2L8 16l-2.2.8L5 19l-.8-2.2L2 16l2.2-.8L5 13Z"></path>
+              </svg>
+
             </div>
+
+            <h3>
+              4+ Years Serving Our Community
+            </h3>
+
+            <p>
+              Proudly helping homes and businesses throughout Toronto &amp; York Region.
+            </p>
+
           </div>
+
+
+
+          <!-- ATTENTION TO DETAIL -->
 
           <div class="about-highlight">
-            <div class="highlight-icon">04</div>
 
-            <div>
-              <h3>How Can We Help?</h3>
-              <p>More than a motto — it is how we approach every customer and every job.</p>
+            <div class="highlight-icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 12.5 11 15l5-6"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+
             </div>
+
+            <h3>
+              Attention to Detail
+            </h3>
+
+            <p>
+              We believe the little things make a big difference.
+            </p>
+
           </div>
+
+
+
+          <!-- LOCATION -->
+
+          <div class="about-highlight">
+
+            <div class="highlight-icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+
+            </div>
+
+            <h3>
+              How Can We Help?
+            </h3>
+
+            <p>
+              More than a motto — it is how we approach every customer and every job.
+            </p>
+
+          </div>
+
 
         </div>
 
@@ -840,62 +1203,152 @@ It’s our pleasure to serve you.
     </section>
 
 
+
     <!-- =========================
          SERVICES
     ========================== -->
-    <section id="services" class="section">
+
+    <section
+      id="services"
+      class="section"
+    >
+
       <h2>Our Services</h2>
+
 
       <div class="services">
 
-        <article class="card">
-          <img src="housecleaning.jpeg" alt="House Cleaning">
-          <h3>House Cleaning</h3>
-          <p>Reliable and detailed cleaning for your home.</p>
-        </article>
 
         <article class="card">
-          <img src="officecleaning.jpeg" alt="Commercial Cleaning">
-          <h3>Commercial Cleaning</h3>
+
+          <img
+            src="housecleaning.jpeg"
+            alt="House Cleaning"
+          >
+
+          <h3>
+            House Cleaning
+          </h3>
+
+          <p>
+            Reliable and detailed cleaning for your home.
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <img
+            src="officecleaning.jpeg"
+            alt="Commercial Cleaning"
+          >
+
+          <h3>
+            Commercial Cleaning
+          </h3>
+
           <p>
             Reliable commercial cleaning services for offices, retail spaces,
             and workplaces, creating a clean, healthy, and professional
             environment for your staff and customers.
           </p>
+
         </article>
 
-        <article class="card">
-          <img src="deepclean.jpeg" alt="Deep Cleaning">
-          <h3>Deep Cleaning</h3>
-          <p>Thorough, top-to-bottom cleaning for a fresh start.</p>
-        </article>
+
 
         <article class="card">
-          <img src="specialtycleaning.jpeg" alt="Specialty Cleaning">
-          <h3>Specialty Cleaning</h3>
-          <p>Windows, detailed jobs, and more.</p>
-        </article>
 
-        <article class="card">
-          <img src="propertyservices.jpeg" alt="Property Services">
-          <h3>Property Services</h3>
-          <p>Light maintenance and property care you can trust.</p>
-        </article>
+          <img
+            src="deepclean.jpeg"
+            alt="Deep Cleaning"
+          >
 
-        <article class="card">
-          <img src="realestatecleaning.jpeg" alt="Real Estate Cleaning">
-          <h3>Real Estate Cleaning</h3>
+          <h3>
+            Deep Cleaning
+          </h3>
+
           <p>
-            Professional pre-listing, move-in, and move-out cleaning that helps
-            showcase every property at its very best. Perfect for homeowners,
-            REALTORS®, landlords, property managers, and tenants preparing a
-            home for sale or occupancy.
+            Thorough, top-to-bottom cleaning for a fresh start.
           </p>
+
         </article>
 
+
+
         <article class="card">
-          <img src="movingjunk.JPG" alt="Moving and Junk Removal">
-          <h3>Moving &amp; Junk Removal</h3>
+
+          <img
+            src="specialtycleaning.jpeg"
+            alt="Specialty Cleaning"
+          >
+
+          <h3>
+            Specialty Cleaning
+          </h3>
+
+          <p>
+            Windows, detailed jobs, and more.
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <img
+            src="propertyservices.jpeg"
+            alt="Property Services"
+          >
+
+          <h3>
+            Property Services
+          </h3>
+
+          <p>
+            Light maintenance and property care you can trust.
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <img
+            src="realestatecleaning.jpeg"
+            alt="Real Estate Cleaning"
+          >
+
+          <h3>
+            Real Estate Cleaning
+          </h3>
+
+          <p>
+            Professional pre-listing, move-in, and move-out cleaning that
+            helps showcase every property at its very best. Perfect for
+            homeowners, REALTORS®, landlords, property managers, and tenants
+            preparing a home for sale or occupancy.
+          </p>
+
+        </article>
+
+
+
+        <article class="card">
+
+          <img
+            src="movingjunk.JPG"
+            alt="Moving and Junk Removal"
+          >
+
+          <h3>
+            Moving &amp; Junk Removal
+          </h3>
+
           <p>
             Need a hand with the heavy lifting? We offer light moving
             assistance, junk removal, and pickup truck &amp; trailer loads for
@@ -903,79 +1356,136 @@ It’s our pleasure to serve you.
             more. Perfect for cleanouts, moving day, or clearing space around
             your property.
           </p>
+
         </article>
 
+
       </div>
+
     </section>
+
 
 
     <!-- =========================
          GALLERY
     ========================== -->
-    <section id="gallery" class="section">
-      <h2>Before &amp; After</h2>
+
+    <section
+      id="gallery"
+      class="section"
+    >
+
+      <h2>
+        Before &amp; After
+      </h2>
 
       <p class="coming-soon">
         📸 Photos coming soon
       </p>
+
     </section>
+
 
 
     <!-- =========================
          REVIEWS
     ========================== -->
-    <section id="reviews" class="section">
-      <h2>What Our Clients Say</h2>
+
+    <section
+      id="reviews"
+      class="section"
+    >
+
+      <h2>
+        What Our Clients Say
+      </h2>
+
 
       <article class="card review-card">
+
         <p>
-          "If I could give 10 stars I would. Jessica is thorough, professional
-          and detail oriented. She makes your house feel like a new one when
-          she’s done with it. Her customer service skills are top notch and
-          will make sure you’re happy with her work. Highly highly recommend."
+          "If I could give 10 stars I would. Jessica is thorough,
+          professional and detail oriented. She makes your house feel like a
+          new one when she’s done with it. Her customer service skills are top
+          notch and will make sure you’re happy with her work. Highly highly
+          recommend."
         </p>
 
-        <strong>- Julia M.</strong>
+        <strong>
+          - Julia M.
+        </strong>
 
-        <div class="stars" aria-label="5 out of 5 stars">
+        <div
+          class="stars"
+          aria-label="5 out of 5 stars"
+        >
           ★★★★★
         </div>
+
       </article>
 
+
+
       <article class="card review-card">
+
         <p>
           "Very happy with services provided, my home hasn’t looked this good
           in awhile. They also came out of their service area! Definitely
           recommend!!"
         </p>
 
-        <strong>- Janice B.</strong>
+        <strong>
+          - Janice B.
+        </strong>
 
-        <div class="stars" aria-label="5 out of 5 stars">
+        <div
+          class="stars"
+          aria-label="5 out of 5 stars"
+        >
           ★★★★★
         </div>
+
       </article>
+
+
 
       <article class="card review-card">
+
         <p>
-          "Some of the nicest people you will meet, that are eager to just help
-          others"
+          "Some of the nicest people you will meet, that are eager to just
+          help others"
         </p>
 
-        <strong>- Lucas G.</strong>
+        <strong>
+          - Lucas G.
+        </strong>
 
-        <div class="stars" aria-label="5 out of 5 stars">
+        <div
+          class="stars"
+          aria-label="5 out of 5 stars"
+        >
           ★★★★★
         </div>
+
       </article>
+
     </section>
+
 
 
     <!-- =========================
          CONTACT
     ========================== -->
-    <section id="contact" class="section">
-      <h2>Request a Quote</h2>
+
+    <section
+      id="contact"
+      class="section"
+    >
+
+      <h2>
+        Request a Quote
+      </h2>
+
 
       <form
         id="contact-form"
@@ -1016,9 +1526,11 @@ It’s our pleasure to serve you.
 
       </form>
 
+
       <p id="success-message">
         Thanks! We’ll get back to you shortly.
       </p>
+
 
       <p>
         Email:
@@ -1027,20 +1539,27 @@ It’s our pleasure to serve you.
         </a>
       </p>
 
+
       <p>
         Phone:
         <a href="tel:7053339471">
           705-333-9471
         </a>
       </p>
+
     </section>
+
 
 
     <!-- =========================
          SERVICE AREA
     ========================== -->
+
     <section class="section">
-      <h2>Our Service Area</h2>
+
+      <h2>
+        Our Service Area
+      </h2>
 
       <iframe
         class="service-map"
@@ -1052,86 +1571,146 @@ It’s our pleasure to serve you.
       <p>
         Proudly serving Toronto &amp; York Region.
       </p>
+
     </section>
 
+
   </main>
+
 
 
   <!-- =========================
        STICKY CTA
   ========================== -->
-  <a href="#contact" class="sticky-cta">
+
+  <a
+    href="#contact"
+    class="sticky-cta"
+  >
     Get Quote
   </a>
+
 
 
   <!-- =========================
        FOOTER
   ========================== -->
+
   <footer>
+
     <p>
       &copy; 2026 How Can We Help Cleaning &amp; Property Services
     </p>
+
   </footer>
+
 
 
   <!-- =========================
        SCROLL ANIMATION
   ========================== -->
-  <script>
-    const sections = document.querySelectorAll(".section");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      {
-        threshold: 0.1
-      }
-    );
+  <script>
+
+    const sections =
+      document.querySelectorAll(".section");
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.1
+        }
+      );
 
     sections.forEach((section) => {
       observer.observe(section);
     });
+
   </script>
+
 
 
   <!-- =========================
        FORMSPREE AJAX SUBMISSION
   ========================== -->
+
   <script>
-    const form = document.getElementById("contact-form");
-    const successMessage = document.getElementById("success-message");
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
+    const form =
+      document.getElementById("contact-form");
 
-      const formData = new FormData(form);
+    const successMessage =
+      document.getElementById("success-message");
 
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: {
-            Accept: "application/json"
+
+    form.addEventListener(
+      "submit",
+      async function (event) {
+
+        event.preventDefault();
+
+        const formData =
+          new FormData(form);
+
+        try {
+
+          const response =
+            await fetch(
+              form.action,
+              {
+                method: form.method,
+                body: formData,
+
+                headers: {
+                  Accept: "application/json"
+                }
+              }
+            );
+
+
+          if (response.ok) {
+
+            successMessage.style.display =
+              "block";
+
+            form.reset();
+
           }
-        });
 
-        if (response.ok) {
-          successMessage.style.display = "block";
-          form.reset();
-        } else {
-          alert("Oops! Something went wrong. Please try again.");
+          else {
+
+            alert(
+              "Oops! Something went wrong. Please try again."
+            );
+
+          }
+
         }
-      } catch (error) {
-        alert("Oops! Something went wrong. Please try again.");
+
+        catch (error) {
+
+          alert(
+            "Oops! Something went wrong. Please try again."
+          );
+
+        }
+
       }
-    });
+    );
+
   </script>
+
 
 </body>
 </html>

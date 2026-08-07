@@ -1,391 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>How Can We Help Cleaning & Property Services</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
-    body { margin:0; font-family: 'Montserrat', sans-serif; color:#333; background:#f9f9f9; }
-    header { background:#6b8f71; color:white; padding:20px; text-align:center; }
-    header img { max-width:180px; display:block; margin:0 auto 10px; }
-    nav a { color:white; margin:5px 15px; text-decoration:none; font-weight:bold; }
-    /* HERO */
-.hero {
-  background: #6b8f71;
-  padding: 120px 20px 60px; /* increased top padding */
-}
+    /* =========================
+       GLOBAL
+    ========================= */
 
-/* TOP BAR INSIDE HERO */
-.hero-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: #6b8f71;
-  padding: 10px 20px;
-}
-    .hero h1 {
-  margin-top: 40px;
-}
-
-/* MENU */
-.hero-menu {
-  display: flex;
-  gap: 12px;
-}
-
-.hero-menu a {
-  text-decoration: none;
-  color: #6b8f71;
-  background: white;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.hero-menu a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-    .btn { display:inline-block; margin:10px; padding:12px 20px; background:#6b8f71; color:white; border-radius:5px; text-decoration:none; transition:transform 0.2s ease, box-shadow 0.2s ease; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.15); }
-    .section { padding:50px 20px; max-width:1000px; margin:auto; opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
-    .section.visible { opacity:1; transform:translateY(0); }
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-    .card { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition:transform 0.2s ease; }
-    .card:hover { transform:translateY(-5px); }
-    .coming-soon { text-align:center; font-size:1.2em; color:#6b8f71; font-weight:bold; }
-    form input, form textarea { width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
-    form button { background:#6b8f71; color:white; padding:10px 15px; border:none; border-radius:5px; }
-    iframe { width:100%; border:0; border-radius:10px; }
-    .sticky-cta {
-      position:fixed;
-      bottom:15px;
-      right:15px;
-      background:#6b8f71;
-      color:white;
-      padding:15px 20px;
-      border-radius:50px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
-      text-decoration:none;
-      font-weight:bold;
+    * {
+      box-sizing: border-box;
     }
-    footer { text-align:center; padding:20px; background:#6b8f71; color:white; }
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-    .stars {
-  color: #6b8f71;
-  margin-top: 10px;
-  font-size: 18px;
-}
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: #333;
+      background: #f9f9f9;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :root {
+      --sage: #6b8f71;
+      --sage-dark: #5a7d60;
+      --sage-light: #e4efe7;
+      --white: #ffffff;
+      --text: #333333;
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+      /* Desktop header height approximation */
+      --header-space: 145px;
+    }
+
+
+    /* =========================
+       STICKY HEADER
+    ========================= */
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      background: var(--sage);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+    }
+
+    .header-inner {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding: 12px 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      min-width: 0;
+    }
+
+    .logo-box {
+      background: var(--white);
+      padding: 5px;
+      border-radius: 8px;
+
+      flex-shrink: 0;
+    }
+
+    .logo-box img {
+      display: block;
+      height: 105px;
+      width: auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+
+      color: var(--white);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.05;
+
+      white-space: nowrap;
+    }
+
+    .brand-text p {
+      margin: 7px 0 0;
+
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+
+      flex-shrink: 0;
+    }
+
+    .header-button {
+      display: inline-block;
+
+      padding: 11px 17px;
+
+      background: var(--white);
+      color: var(--sage);
+
+      border-radius: 24px;
+
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .header-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #f7f7f7;
+    }
+
+
+    /* =========================
+       HEADER SPACER
+    ========================= */
+
+    .header-spacer {
+      height: var(--header-space);
+      background: var(--sage);
+    }
+
+
+    /* =========================
+       SHARED SECTION STYLES
+    ========================= */
+
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px;
+
+      opacity: 0;
+      transform: translateY(20px);
+
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-section {
+      background: transparent;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+
+      padding: 20px;
+      border-radius: 10px;
+
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.10);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
     .services img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+      display: block;
+
+      width: 100%;
+      height: 160px;
+
+      object-fit: cover;
+
+      border-radius: 8px;
+
+      margin-bottom: 10px;
+    }
+
     .card h3 {
-  margin-top: 5px;
-  transition: color 0.3s ease;
-}
+      margin: 5px 0 8px;
 
-.card:hover h3 {
-  color: #6b8f71;
-}
-   
-/* LOGO */
-.logo-box {
-  background: white;
-  padding: 5px;
-  border-radius: 6px;
-}
+      transition: color 0.3s ease;
+    }
 
-.logo-box img {
-  height: 120px;
-}
-@media (max-width: 768px) {
+    .card:hover h3 {
+      color: var(--sage);
+    }
 
-  .hero-top {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    .card p {
+      margin-top: 0;
+    }
 
-.brand-text h1 {
-  color: white;
-  margin: 0;
-  font-size: 28px;
-  line-height: 1;
-}
 
-.brand-text p {
-  color: white;
-  margin: 5px 0 0;
-  font-size: 14px;
-  opacity: 0.9;
-}
+    /* =========================
+       GALLERY
+    ========================= */
 
-.hero-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+    .coming-soon {
+      text-align: center;
 
-  .logo-box img {
-    height: 80px;
-  }
+      font-size: 1.2rem;
+      font-weight: 600;
 
-  .hero-menu {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+      color: var(--sage);
+    }
 
-  .hero-menu a {
-    padding: 8px 14px;
-    font-size: 14px;
-  }
 
-}
-    .hero-menu {
-  gap: 8px;
-}
+    /* =========================
+       REVIEWS
+    ========================= */
+
+    .review-card + .review-card {
+      margin-top: 20px;
+    }
+
+    .stars {
+      margin-top: 10px;
+
+      color: var(--sage);
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
+
+    .contact-form {
+      width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+
+      padding: 12px;
+      margin: 10px 0;
+
+      border: 1px solid #ccc;
+      border-radius: 6px;
+
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      padding: 11px 16px;
+
+      background: var(--sage);
+      color: var(--white);
+
+      border: none;
+      border-radius: 6px;
+
+      font: inherit;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background: var(--sage-dark);
+      transform: translateY(-1px);
+    }
+
+    #success-message {
+      display: none;
+
+      margin-top: 10px;
+
+      color: var(--sage-dark);
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       MAP
+    ========================= */
+
+    .service-map {
+      width: 100%;
+      height: 300px;
+
+      border: 0;
+      border-radius: 10px;
+    }
+
+
+    /* =========================
+       STICKY GET QUOTE BUTTON
+    ========================= */
+
+    .sticky-cta {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      z-index: 900;
+
+      padding: 15px 20px;
+
+      background: var(--sage);
+      color: var(--white);
+
+      border-radius: 50px;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 20px;
+
+      background: var(--sage);
+      color: var(--white);
+
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+
+    /* =========================
+       TABLET / MOBILE
+    ========================= */
+
     @media (max-width: 768px) {
+      :root {
+        --header-space: 220px;
+      }
 
-  .hero-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    padding: 15px;
-  }
+      .header-inner {
+        flex-direction: column;
 
-  .topbar-left {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+        justify-content: center;
+        align-items: center;
 
-  .logo-box img {
-    height: 75px;
-  }
+        gap: 12px;
 
-  .brand-text h1 {
-    font-size: 34px;
-    line-height: 1.1;
-  }
+        padding: 12px 10px;
+      }
 
-  .brand-text p {
-    font-size: 18px;
-  }
+      .brand {
+        width: 100%;
 
-  .hero-buttons {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-  }
+        justify-content: center;
 
-  .hero-buttons .btn {
-    padding: 10px 12px;
-    font-size: 14px;
-    margin: 0;
-    white-space: nowrap;
-  }
+        gap: 12px;
+      }
 
-  .hero {
-    padding-top: 220px;
-  }
-}
+      .logo-box img {
+        height: 72px;
+      }
+
+      .brand-text h1 {
+        font-size: 28px;
+
+        white-space: normal;
+      }
+
+      .brand-text p {
+        margin-top: 5px;
+
+        font-size: 14px;
+      }
+
+      .header-actions {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 6px;
+      }
+
+      .header-button {
+        padding: 9px 10px;
+
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 42px 20px;
+      }
+
+      .sticky-cta {
+        right: 12px;
+        bottom: 12px;
+
+        padding: 13px 18px;
+      }
+    }
+
+
+    /* =========================
+       SMALL PHONES
+    ========================= */
+
+    @media (max-width: 420px) {
+      :root {
+        --header-space: 205px;
+      }
+
+      .header-inner {
+        padding: 10px 8px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .logo-box img {
+        height: 62px;
+      }
+
+      .brand-text h1 {
+        font-size: 22px;
+      }
+
+      .brand-text p {
+        font-size: 12px;
+      }
+
+      .header-actions {
+        gap: 5px;
+      }
+
+      .header-button {
+        padding: 8px 8px;
+
+        font-size: 11px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<section class="hero">
+  <!-- =========================
+       STICKY HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-inner">
 
- <div class="hero-top">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="logo.png" alt="How Can We Help Cleaning & Property Services logo">
+        </div>
 
-  <div class="topbar-left">
-    <div class="logo-box">
-      <img src="logo.png" alt="Logo">
+        <div class="brand-text">
+          <h1>How Can We Help</h1>
+          <p>Cleaning & Property Services</p>
+        </div>
+      </div>
+
+      <nav class="header-actions" aria-label="Primary actions">
+        <a class="header-button" href="#contact">Request a Quote</a>
+        <a class="header-button" href="tel:7053339471">Call Now</a>
+        <a class="header-button" href="sms:7053339471">Text Us</a>
+      </nav>
+
     </div>
+  </header>
 
-    <div class="brand-text">
-      <h1>How Can We Help</h1>
-      <p>Cleaning & Property Services</p>
-    </div>
-  </div>
+  <!-- Spacer prevents page content from sitting under the fixed header -->
+  <div class="header-spacer" aria-hidden="true"></div>
 
-  <div class="hero-buttons">
-    <a class="btn" href="#contact">Request a Quote</a>
-    <a class="btn" href="tel:7053339471">Call Now</a>
-    <a class="btn" href="sms:7053339471">Text Us</a>
-  </div>
 
-</div>
+  <main>
 
- 
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section id="about" class="section about-section">
+      <h2>About Us</h2>
 
-</section>
+      <p>
+        We are a family-owned and operated cleaning and property service company
+        dedicated to providing top-quality service. Our mission is simple:
+        treat every client like family and always ask, "How can we help?"
+      </p>
+    </section>
 
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>We are a family-owned and operated cleaning and property service company dedicated to providing top-quality service. Our mission is simple: treat every client like family and always ask, "How can we help?"</p>
-</section>
 
-<section id="services" class="section">
-  <h2>Our Services</h2>
-  <div class="services">
+    <!-- =========================
+         SERVICES
+    ========================== -->
+    <section id="services" class="section">
+      <h2>Our Services</h2>
 
-  <div class="card">
-    <img src="housecleaning.png" alt="House Cleaning">
-    <h3>House Cleaning</h3>
-    <p>Reliable and detailed cleaning for your home.</p>
-  </div>
+      <div class="services">
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Office Cleaning">
-    <h3>Office Cleaning</h3>
-    <p>Professional cleaning for workspaces of all sizes.</p>
-  </div>
+        <article class="card">
+          <img src="housecleaning.png" alt="House cleaning service">
+          <h3>House Cleaning</h3>
+          <p>Reliable and detailed cleaning for your home.</p>
+        </article>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f" alt="Deep Cleaning">
-    <h3>Deep Cleaning</h3>
-    <p>Thorough, top-to-bottom cleaning for a fresh start.</p>
-  </div>
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c"
+            alt="Office cleaning service"
+          >
+          <h3>Office Cleaning</h3>
+          <p>Professional cleaning for workspaces of all sizes.</p>
+        </article>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="House Cleaning">
-    <h3>Specialty Cleaning</h3>
-    <p>Windows, detailed jobs, and more.</p>
-  </div>
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f"
+            alt="Deep cleaning service"
+          >
+          <h3>Deep Cleaning</h3>
+          <p>Thorough, top-to-bottom cleaning for a fresh start.</p>
+        </article>
 
-  <div class="card">
-    <img src="propertyservice.png" alt="Property Services">
-    <h3>Property Services</h3>
-    <p>Light maintenance and property care you can trust.</p>
-  </div>
+        <article class="card">
+          <img
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952"
+            alt="Specialty cleaning service"
+          >
+          <h3>Specialty Cleaning</h3>
+          <p>Windows, detailed jobs, and more.</p>
+        </article>
 
-</div>
-</section>
+        <article class="card">
+          <img src="propertyservice.png" alt="Property maintenance service">
+          <h3>Property Services</h3>
+          <p>Light maintenance and property care you can trust.</p>
+        </article>
 
-<section id="gallery" class="section">
-  <h2>Before & After</h2>
-  <p class="coming-soon">📸 Photos coming soon</p>
-</section>
+      </div>
+    </section>
 
-<section id="reviews" class="section">
-  <h2>What Our Clients Say</h2>
 
-  <div class="card">
-    <p>"If I could give 10 stars I would. Jessica is thorough, professional and detail oriented. 
-    She makes your house feel like a new one when she’s done with it. Her customer service skills
-      are top notch and will make sure you’re happy with her work. Highly highly recommend."</p>
-    <strong>- Julia M.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
+    <!-- =========================
+         GALLERY
+    ========================== -->
+    <section id="gallery" class="section">
+      <h2>Before &amp; After</h2>
 
-  <div class="card">
-    <p>"Very happy with services provided, my home hasn’t looked this good in awhile.
-      They also came out of their service area! Definitely recommend!!"</p>
-    <strong>- Janice B.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
+      <p class="coming-soon">
+        📸 Photos coming soon
+      </p>
+    </section>
 
-  <div class="card">
-    <p>"Some of the nicest people you will meet, that are eager to just help others"</p>
-    <strong>- Lucas G.</strong>
-    <div class="stars">★★★★★</div>
-  </div>
 
-</section>
+    <!-- =========================
+         REVIEWS
+    ========================== -->
+    <section id="reviews" class="section">
+      <h2>What Our Clients Say</h2>
 
-<section id="contact" class="section">
-  <h2>Request a Quote</h2>
- <form id="contact-form" action="https://formspree.io/f/xlgzggwz" method="POST">
-  
-  <input type="text" name="name" placeholder="Your Name" required>
-  
-  <input type="email" name="email" placeholder="Your Email" required>
-  
-  <input type="tel" name="phone" placeholder="Your Phone Number">
-  
-  <textarea name="message" placeholder="How can we help?" required></textarea>
-  
-  <button type="submit">Get a Free Quote</button>
-  
-</form>
+      <article class="card review-card">
+        <p>
+          "If I could give 10 stars I would. Jessica is thorough, professional
+          and detail oriented. She makes your house feel like a new one when
+          she’s done with it. Her customer service skills are top notch and
+          will make sure you’re happy with her work. Highly highly recommend."
+        </p>
 
-<p id="success-message" style="display:none; color: green; margin-top: 10px;">
-  Thanks! We’ll get back to you shortly.
-</p>
-  <p>Email: info.howcanwehelp@gmail.com</p>
-  <p>Phone: 705-333-9471</p>
-</section>
+        <strong>- Julia M.</strong>
 
-<section class="section">
-  <h2>Our Service Area</h2>
-  <iframe src="https://www.google.com/maps?q=York+Region+Ontario&output=embed&z=9" height="300"></iframe>
-  <p>Proudly serving Toronto & York Region.</p>
-</section>
+        <div class="stars" aria-label="5 out of 5 stars">
+          ★★★★★
+        </div>
+      </article>
 
-<a href="#contact" class="sticky-cta">Get Quote</a>
+      <article class="card review-card">
+        <p>
+          "Very happy with services provided, my home hasn’t looked this good
+          in awhile. They also came out of their service area! Definitely
+          recommend!!"
+        </p>
 
-<footer>
-  <p>&copy; 2026 How Can We Help Cleaning & Property Services</p>
-</footer>
+        <strong>- Janice B.</strong>
 
-<script>
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.1 });
-  sections.forEach(section => observer.observe(section));
-</script>
-<script>
-  const form = document.getElementById("contact-form");
-  const successMessage = document.getElementById("success-message");
+        <div class="stars" aria-label="5 out of 5 stars">
+          ★★★★★
+        </div>
+      </article>
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
+      <article class="card review-card">
+        <p>
+          "Some of the nicest people you will meet, that are eager to just help
+          others"
+        </p>
 
-    const data = new FormData(form);
+        <strong>- Lucas G.</strong>
 
-    fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
+        <div class="stars" aria-label="5 out of 5 stars">
+          ★★★★★
+        </div>
+      </article>
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section id="contact" class="section">
+      <h2>Request a Quote</h2>
+
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://formspree.io/f/xlgzggwz"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone Number"
+        >
+
+        <textarea
+          name="message"
+          placeholder="How can we help?"
+          required
+        ></textarea>
+
+        <button type="submit">
+          Get a Free Quote
+        </button>
+      </form>
+
+      <p id="success-message">
+        Thanks! We’ll get back to you shortly.
+      </p>
+
+      <p>
+        Email:
+        <a href="mailto:info.howcanwehelp@gmail.com">
+          info.howcanwehelp@gmail.com
+        </a>
+      </p>
+
+      <p>
+        Phone:
+        <a href="tel:7053339471">
+          705-333-9471
+        </a>
+      </p>
+    </section>
+
+
+    <!-- =========================
+         SERVICE AREA
+    ========================== -->
+    <section class="section">
+      <h2>Our Service Area</h2>
+
+      <iframe
+        class="service-map"
+        src="https://www.google.com/maps?q=York+Region+Ontario&output=embed&z=9"
+        loading="lazy"
+        title="How Can We Help service area map"
+      ></iframe>
+
+      <p>
+        Proudly serving Toronto &amp; York Region.
+      </p>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       STICKY CTA
+  ========================== -->
+  <a href="#contact" class="sticky-cta">
+    Get Quote
+  </a>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <p>
+      &copy; 2026 How Can We Help Cleaning &amp; Property Services
+    </p>
+  </footer>
+
+
+  <!-- =========================
+       SCROLL ANIMATION
+  ========================== -->
+  <script>
+    const sections = document.querySelectorAll(".section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.1
       }
-    }).then(response => {
-      if (response.ok) {
-        successMessage.style.display = "block";
-        form.reset();
-      } else {
-        alert("Oops! Something went wrong.");
-      }
-    }).catch(() => {
-      alert("Oops! Something went wrong.");
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
     });
-  });
-</script>
+  </script>
+
+
+  <!-- =========================
+       FORMSPREE AJAX SUBMISSION
+  ========================== -->
+  <script>
+    const form = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+        } else {
+          alert("Oops! Something went wrong. Please try again.");
+        }
+      } catch (error) {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    });
+  </script>
+
 </body>
 </html>

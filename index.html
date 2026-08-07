@@ -52,7 +52,6 @@
       --text: #333333;
       --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 
-      /* Desktop header height approximation */
       --header-space: 145px;
     }
 
@@ -89,7 +88,6 @@
       display: flex;
       align-items: center;
       gap: 18px;
-
       min-width: 0;
     }
 
@@ -97,7 +95,6 @@
       background: var(--white);
       padding: 5px;
       border-radius: 8px;
-
       flex-shrink: 0;
     }
 
@@ -206,11 +203,143 @@
 
 
     /* =========================
-       ABOUT
+       ABOUT US
     ========================= */
 
     .about-section {
-      background: transparent;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 60px;
+      align-items: center;
+
+      max-width: 1200px;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .about-visual {
+      position: relative;
+      min-height: 500px;
+    }
+
+    .about-accent {
+      position: absolute;
+      top: 35px;
+      left: -30px;
+
+      width: 92%;
+      height: 92%;
+
+      background: var(--sage-light);
+      border-radius: 20px;
+    }
+
+    .about-photo {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      height: 500px;
+
+      object-fit: cover;
+
+      border-radius: 18px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-kicker {
+      margin: 0 0 8px;
+
+      color: var(--sage);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about-content h2 {
+      margin: 0 0 20px;
+
+      font-size: 38px;
+      line-height: 1.15;
+
+      color: var(--text);
+    }
+
+    .about-story {
+      margin-bottom: 30px;
+
+      font-size: 17px;
+      line-height: 1.8;
+
+      color: #555;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .about-highlight {
+      display: flex;
+      gap: 14px;
+
+      padding: 18px;
+
+      background: var(--white);
+
+      border: 1px solid #e8eee9;
+      border-radius: 12px;
+
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .about-highlight:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .highlight-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 38px;
+      height: 38px;
+
+      flex: 0 0 38px;
+
+      background: var(--sage);
+      color: var(--white);
+
+      border-radius: 50%;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .about-highlight h3 {
+      margin: 0 0 5px;
+
+      font-size: 15px;
+
+      color: var(--text);
+    }
+
+    .about-highlight p {
+      margin: 0;
+
+      font-size: 13px;
+      line-height: 1.5;
+
+      color: #666;
     }
 
 
@@ -478,6 +607,37 @@
         padding: 42px 20px;
       }
 
+      /* ABOUT MOBILE */
+
+      .about-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .about-visual {
+        min-height: auto;
+      }
+
+      .about-accent {
+        top: 20px;
+        left: -12px;
+      }
+
+      .about-photo {
+        height: 380px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .about-highlights {
+        grid-template-columns: 1fr;
+      }
+
       .sticky-cta {
         right: 12px;
         bottom: 12px;
@@ -525,6 +685,14 @@
 
         font-size: 11px;
       }
+
+      .about-photo {
+        height: 300px;
+      }
+
+      .about-content h2 {
+        font-size: 27px;
+      }
     }
   </style>
 </head>
@@ -557,23 +725,118 @@
     </div>
   </header>
 
-  <!-- Spacer prevents page content from sitting under the fixed header -->
   <div class="header-spacer" aria-hidden="true"></div>
 
 
   <main>
 
     <!-- =========================
-         ABOUT
+         ABOUT US
     ========================== -->
     <section id="about" class="section about-section">
-      <h2>About Us</h2>
 
-      <p>
-        We are a family-owned and operated cleaning and property service company
-        dedicated to providing top-quality service. Our mission is simple:
-        treat every client like family and always ask, "How can we help?"
-      </p>
+      <div class="about-visual">
+        <div class="about-accent"></div>
+
+        <img
+          src="about-us.jpeg"
+          alt="How Can We Help Cleaning & Property Services team"
+          class="about-photo"
+        >
+      </div>
+
+      <div class="about-content">
+
+        <p class="about-kicker">A little about us</p>
+
+        <h2>Family Owned. Local. Here to Help.</h2>
+
+        <p class="about-story">
+          Meet Jess & Steve
+
+Two people who believe that helping people matters.
+
+Hi, we’re Jess and Steve!
+
+How Can We Help started with a pretty simple idea: if we have the ability to make someone’s life a little easier, why wouldn’t we?
+
+Jess has always been someone who finds herself helping wherever she can. She’s a natural organizer, a cleaner, a crafter, a problem-solver, and, according to Steve, someone who has a hard time saying no when somebody needs a hand. She loves taking something that feels overwhelming and turning it into something manageable again.
+
+Over the years, Steve became a big part of that same vision. He’s always been someone who is happiest when he can step in, figure something out, and make a difficult job a little easier. Whether it’s getting his hands dirty, solving a problem, lending a hand, or simply being there when someone needs support, helping people has always come naturally to him.
+
+Eventually, we realized that this was something we wanted to build together.
+
+We started small, helping people with cleaning and whatever other jobs they needed a hand with. About five years later, that little idea has grown into something we’re incredibly proud of.
+
+Along the way, we realized that the part we loved most wasn’t just making a house clean — it was seeing the relief on someone’s face when a job that had been weighing on them was finally taken care of.
+
+We’re in the business of helping people.
+
+Sometimes that means cleaning a home for a busy parent who hasn’t had a moment to breathe.
+
+Sometimes it means helping a senior with things that have become difficult to manage alone.
+
+Sometimes it means organizing the room that’s been driving someone crazy for six months, helping with a move, taking care of the yard, or simply tackling the pile of things that life has gotten in the way of.
+
+And sometimes, it’s just about giving someone back a little bit of their time.
+
+We don’t believe anyone should feel embarrassed about needing help. Life gets busy. Things happen. Homes get messy. To-do lists get long. Mess means life is happening. It means people are living, growing, working, raising families, creating memories, and sometimes just trying to get through the week.
+
+Everyone needs an extra set of hands sometimes.
+
+We’re building How Can We Help because we want to be those hands.
+
+Five years after that little idea began, we’re still a small, local business, and that’s something we’re proud of. When you hire us, you know who you’re getting. We care about the people we work for, we care about the quality of what we do, and we genuinely want you to feel better when we leave than you did when we arrived.
+
+At the end of the day, our name really says it all.
+
+How Can We Help?
+
+It’s our pleasure to serve you.
+        </p>
+
+        <div class="about-highlights">
+
+          <div class="about-highlight">
+            <div class="highlight-icon">01</div>
+
+            <div>
+              <h3>Family Owned &amp; Operated</h3>
+              <p>Personal service from people who genuinely care about the work.</p>
+            </div>
+          </div>
+
+          <div class="about-highlight">
+            <div class="highlight-icon">02</div>
+
+            <div>
+              <h3>4+ Years Serving Our Community</h3>
+              <p>Proudly helping homes and businesses throughout Toronto &amp; York Region.</p>
+            </div>
+          </div>
+
+          <div class="about-highlight">
+            <div class="highlight-icon">03</div>
+
+            <div>
+              <h3>Attention to Detail</h3>
+              <p>We believe the little things make a big difference.</p>
+            </div>
+          </div>
+
+          <div class="about-highlight">
+            <div class="highlight-icon">04</div>
+
+            <div>
+              <h3>How Can We Help?</h3>
+              <p>More than a motto — it is how we approach every customer and every job.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
 
@@ -586,47 +849,62 @@
       <div class="services">
 
         <article class="card">
-    <img src="housecleaning.jpeg" alt="House Cleaning">
-    <h3>House Cleaning</h3>
-    <p>Reliable and detailed cleaning for your home.</p>
-</article>
+          <img src="housecleaning.jpeg" alt="House Cleaning">
+          <h3>House Cleaning</h3>
+          <p>Reliable and detailed cleaning for your home.</p>
+        </article>
 
-<article class="card">
-    <img src="officecleaning.jpeg" alt="Commercial Cleaning">
-    <h3>Commercial Cleaning</h3>
-    <p>Reliable commercial cleaning services for offices, retail spaces, and workplaces, creating a clean, healthy, and professional environment for your staff and customers.</p>
-</article>
+        <article class="card">
+          <img src="officecleaning.jpeg" alt="Commercial Cleaning">
+          <h3>Commercial Cleaning</h3>
+          <p>
+            Reliable commercial cleaning services for offices, retail spaces,
+            and workplaces, creating a clean, healthy, and professional
+            environment for your staff and customers.
+          </p>
+        </article>
 
-<article class="card">
-    <img src="deepclean.jpeg" alt="Deep Cleaning">
-    <h3>Deep Cleaning</h3>
-    <p>Thorough, top-to-bottom cleaning for a fresh start.</p>
-</article>
+        <article class="card">
+          <img src="deepclean.jpeg" alt="Deep Cleaning">
+          <h3>Deep Cleaning</h3>
+          <p>Thorough, top-to-bottom cleaning for a fresh start.</p>
+        </article>
 
-<article class="card">
-    <img src="specialtycleaning.jpeg" alt="Specialty Cleaning">
-    <h3>Specialty Cleaning</h3>
-    <p>Windows, detailed jobs, and more.</p>
-</article>
+        <article class="card">
+          <img src="specialtycleaning.jpeg" alt="Specialty Cleaning">
+          <h3>Specialty Cleaning</h3>
+          <p>Windows, detailed jobs, and more.</p>
+        </article>
 
-<article class="card">
-    <img src="propertyservices.jpeg" alt="Property Services">
-    <h3>Property Services</h3>
-    <p>Light maintenance and property care you can trust.</p>
-</article>
+        <article class="card">
+          <img src="propertyservices.jpeg" alt="Property Services">
+          <h3>Property Services</h3>
+          <p>Light maintenance and property care you can trust.</p>
+        </article>
 
-<article class="card">
-    <img src="realestatecleaning.jpeg" alt="Real Estate Cleaning">
-    <h3>Real Estate Cleaning</h3>
-    <p>Professional pre-listing, move-in, and move-out cleaning that helps showcase every property at its very best. Perfect for homeowners, REALTORS®, landlords, property managers, and tenants preparing a home for sale or occupancy.</p>
-</article>
+        <article class="card">
+          <img src="realestatecleaning.jpeg" alt="Real Estate Cleaning">
+          <h3>Real Estate Cleaning</h3>
+          <p>
+            Professional pre-listing, move-in, and move-out cleaning that helps
+            showcase every property at its very best. Perfect for homeowners,
+            REALTORS®, landlords, property managers, and tenants preparing a
+            home for sale or occupancy.
+          </p>
+        </article>
 
-<article class="card">
-    <img src="movingjunk.JPG" alt="Moving and Junk Removal">
-    <h3>Moving &amp; Junk Removal</h3>
-    <p>Need a hand with the heavy lifting? We offer light moving assistance, junk removal, and pickup truck &amp; trailer loads for furniture, household items, renovation debris, yard waste, and more. Perfect for cleanouts, moving day, or clearing space around your property.</p>
-</article>
-        
+        <article class="card">
+          <img src="movingjunk.JPG" alt="Moving and Junk Removal">
+          <h3>Moving &amp; Junk Removal</h3>
+          <p>
+            Need a hand with the heavy lifting? We offer light moving
+            assistance, junk removal, and pickup truck &amp; trailer loads for
+            furniture, household items, renovation debris, yard waste, and
+            more. Perfect for cleanouts, moving day, or clearing space around
+            your property.
+          </p>
+        </article>
+
       </div>
     </section>
 
@@ -705,6 +983,7 @@
         action="https://formspree.io/f/xlgzggwz"
         method="POST"
       >
+
         <input
           type="text"
           name="name"
@@ -734,6 +1013,7 @@
         <button type="submit">
           Get a Free Quote
         </button>
+
       </form>
 
       <p id="success-message">
